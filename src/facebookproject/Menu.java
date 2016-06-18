@@ -41,14 +41,15 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         likePost_btn = new javax.swing.JButton();
         recurso_lbl = new javax.swing.JLabel();
-        cargarImagen_btn = new javax.swing.JButton();
-        quitarImagen_btn = new javax.swing.JButton();
+        cargarImaxe_btn = new javax.swing.JButton();
+        quitarImaxe_btn = new javax.swing.JButton();
         textoTip_lbl = new javax.swing.JLabel();
         mensaje_lbl = new javax.swing.JLabel();
-        postList = new javax.swing.JList<>();
+        postList = new javax.swing.JList<String>();
         comentar_btn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         texto = new javax.swing.JTextArea();
+        Foto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Facebook");
@@ -63,7 +64,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Laksaman", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MiniProyecto Facebook");
+        jLabel1.setText("Proxecto Facebook");
 
         likePost_btn.setText("Like Post");
         likePost_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -72,21 +73,21 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        cargarImagen_btn.setText("Cargar Imagen");
-        cargarImagen_btn.addActionListener(new java.awt.event.ActionListener() {
+        cargarImaxe_btn.setText("Cargar Imaxe");
+        cargarImaxe_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cargarImagen_btnActionPerformed(evt);
+                cargarImaxe_btnActionPerformed(evt);
             }
         });
 
-        quitarImagen_btn.setText("Quitar Imagen");
-        quitarImagen_btn.addActionListener(new java.awt.event.ActionListener() {
+        quitarImaxe_btn.setText("Quitar Imaxe");
+        quitarImaxe_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitarImagen_btnActionPerformed(evt);
+                quitarImaxe_btnActionPerformed(evt);
             }
         });
 
-        textoTip_lbl.setText("Mensaje de publicación:");
+        textoTip_lbl.setText("Mensaxe de publicación:");
 
         mensaje_lbl.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -101,6 +102,8 @@ public class Menu extends javax.swing.JFrame {
         texto.setRows(5);
         jScrollPane1.setViewportView(texto);
 
+        Foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/facebookproject/ads.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,45 +115,59 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textoTip_lbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                        .addComponent(mensaje_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(postList, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                        .addComponent(mensaje_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                        .addGap(34, 34, 34)
+                        .addComponent(postList, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(recurso_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(comentar_btn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(quitarImagen_btn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(publicar_btn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(likePost_btn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cargarImagen_btn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addComponent(recurso_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cargarImaxe_btn)
+                                    .addComponent(quitarImaxe_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(52, 52, 52)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Foto)
+                                    .addComponent(jLabel1))))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comentar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(likePost_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(311, 311, 311)
+                .addComponent(publicar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(likePost_btn)
+                                .addGap(82, 82, 82)
+                                .addComponent(comentar_btn))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(recurso_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Foto))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(quitarImaxe_btn)
+                                .addGap(85, 85, 85)
+                                .addComponent(cargarImaxe_btn)))
+                        .addGap(47, 47, 47)
                         .addComponent(publicar_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(likePost_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cargarImagen_btn)
-                            .addComponent(recurso_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(quitarImagen_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comentar_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                         .addComponent(textoTip_lbl)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -159,7 +176,7 @@ public class Menu extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(mensaje_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(postList, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -169,7 +186,10 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +200,7 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cargarImagen_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarImagen_btnActionPerformed
+    private void cargarImaxe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarImaxe_btnActionPerformed
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
         chooser.setFileFilter(filter);
@@ -188,20 +208,20 @@ public class Menu extends javax.swing.JFrame {
         if (option == JFileChooser.APPROVE_OPTION) {
             recurso_lbl.setText(chooser.getSelectedFile().getPath());
         }
-    }//GEN-LAST:event_cargarImagen_btnActionPerformed
+    }//GEN-LAST:event_cargarImaxe_btnActionPerformed
 
     private void likePost_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likePost_btnActionPerformed
-//        postList.setModel(Metodos.getPosts());
+        postList.setModel(Metodos.getPosts());
         Metodos.like();
-        mensaje_lbl.setForeground(Color.green);
-        mensaje_lbl.setText("Le ha dado like");
+        mensaje_lbl.setForeground(Color.blue);
+        mensaje_lbl.setText("Me gusta!!!");
     }//GEN-LAST:event_likePost_btnActionPerformed
 
     private void publicar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publicar_btnActionPerformed
         if (recurso_lbl.getText().equals("") || recurso_lbl.getText()==null) {
             try {
                 Metodos.post(texto.getText());
-                mensaje_lbl.setForeground(Color.green);
+                mensaje_lbl.setForeground(Color.blue);
                 mensaje_lbl.setText("Publicación exitosa");
             }catch(FacebookOAuthException e){
                 System.out.println(e.getMessage());
@@ -209,7 +229,7 @@ public class Menu extends javax.swing.JFrame {
         } else {
             try {
                 Metodos.uploadImage(recurso_lbl.getText(), texto.getText());
-                mensaje_lbl.setForeground(Color.green);
+                mensaje_lbl.setForeground(Color.blue);
                 mensaje_lbl.setText("Publicación exitosa");
             } catch (FileNotFoundException ex) {
                 System.out.println("Fichero no encontrado");
@@ -220,16 +240,17 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_publicar_btnActionPerformed
 
-    private void quitarImagen_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarImagen_btnActionPerformed
+    private void quitarImaxe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarImaxe_btnActionPerformed
         if(recurso_lbl.getText()!=""){
             recurso_lbl.setText("");
         }
-    }//GEN-LAST:event_quitarImagen_btnActionPerformed
+    }//GEN-LAST:event_quitarImaxe_btnActionPerformed
 
     private void comentar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comentar_btnActionPerformed
         Metodos.comment(texto.getText());
-        mensaje_lbl.setForeground(Color.green);
-        mensaje_lbl.setText("Comentario publicado");
+        mensaje_lbl.setForeground(Color.blue);
+        mensaje_lbl.setText("Publicado");
+        
     }//GEN-LAST:event_comentar_btnActionPerformed
 
     /**
@@ -268,7 +289,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cargarImagen_btn;
+    private javax.swing.JLabel Foto;
+    private javax.swing.JButton cargarImaxe_btn;
     private javax.swing.JButton comentar_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -277,7 +299,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel mensaje_lbl;
     private javax.swing.JList<String> postList;
     private javax.swing.JButton publicar_btn;
-    private javax.swing.JButton quitarImagen_btn;
+    private javax.swing.JButton quitarImaxe_btn;
     private javax.swing.JLabel recurso_lbl;
     private javax.swing.JTextArea texto;
     private javax.swing.JLabel textoTip_lbl;
